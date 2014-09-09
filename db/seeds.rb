@@ -1,0 +1,1 @@
+Entry.create english: 'Pizza', thai: 'พิซซ่า'
