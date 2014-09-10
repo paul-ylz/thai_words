@@ -9,17 +9,20 @@ class ThaiWords.Views.EntriesIndex extends Backbone.View
   events:
     'submit #new_entry': 'createEntry'
 
-  createEntry: (e) ->
-    e.preventDefault()
-    attr = thai: $('#new_entry_thai').val(), english: $('#new_entry_english').val()
-    @collection.create attr,
-      success: $('#new_entry').trigger('reset')
-
   render: ->
     $(@el).html(@template())
     @collection.each(@appendEntry)
     this
 
+  createEntry: (e) ->
+    e.preventDefault()
+    attr = thai: $('#new_entry_thai').val(), english: $('#new_entry_english').val()
+    @collection.create attr,
+      success: @resetForm
+
   appendEntry: (entry) =>
     view = new ThaiWords.Views.Entry( model: entry )
     @$('#entries').append(view.render().el)
+
+  resetForm: ->
+    $('#new_entry').trigger('reset')

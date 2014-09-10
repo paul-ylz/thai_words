@@ -10,7 +10,7 @@
 </table>
 
 <form id="new_entry">
-  <input type="text" name="thai" id="new_entry_thai" value="Thai">
-  <input type="text" name="english" id="new_entry_english" value="English">
+  <input type="text" name="thai" id="new_entry_thai" placeholder="ไก่">
+  <input type="text" name="english" id="new_entry_english" placeholder="chicken">
   <input type="submit" value="Add">
 </form>
