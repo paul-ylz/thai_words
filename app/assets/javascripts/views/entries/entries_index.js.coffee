@@ -1,5 +1,7 @@
 class ThaiWords.Views.EntriesIndex extends Backbone.View
 
+  model: ThaiWords.Views.Entry
+
   template: JST['entries/index']
 
   className: 'entries-index'

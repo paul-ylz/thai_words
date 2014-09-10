@@ -5,6 +5,10 @@ class EntriesController < ApplicationController
     respond_with Entry.create(permitted_params)
   end
 
+  def destroy
+    respond_with Entry.destroy(params[:id])
+  end
+
   private
 
     def permitted_params

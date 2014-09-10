@@ -50,3 +50,10 @@ table td {
   background: #EEE;
   padding: 5px;
 }
+
+table tr {
+  .destroy {
+    float: right;
+    color: #DDD;
+  }
+}

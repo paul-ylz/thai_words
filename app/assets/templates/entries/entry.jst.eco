@@ -1,2 +1,8 @@
-<td><%= @entry.get('thai') %></td>
-<td><%= @entry.get('english') %></td>
+<td class="thai">
+  <%= @entry.get('thai') %>
+</td>
+
+<td class="english">
+  <%= @entry.get('english') %>
+  <span class="destroy" id="<%= @entry.get('id') %>">&times;</span>
+</td>
