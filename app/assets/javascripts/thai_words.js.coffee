@@ -3,7 +3,9 @@ window.ThaiWords =
   Collections: {}
   Views: {}
   Routers: {}
-  initialize: -> alert 'Hello from Backbone!'
+  initialize: ->
+    new ThaiWords.Routers.Entries
+    Backbone.history.start(pushState: true)
 
 $(document).ready ->
   ThaiWords.initialize()

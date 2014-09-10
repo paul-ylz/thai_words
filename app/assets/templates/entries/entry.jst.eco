@@ -1,0 +1,2 @@
+<td><%= @entry.get('thai') %></td>
+<td><%= @entry.get('english') %></td>

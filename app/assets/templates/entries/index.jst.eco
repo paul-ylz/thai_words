@@ -1,0 +1,16 @@
+<h1>Thai Words</h1>
+
+<h2>Entries</h2>
+
+<table id="entries">
+  <tr>
+    <th>Thai</th>
+    <th>English</th>
+  </tr>
+</table>
+
+<form id="new_entry">
+  <input type="text" name="thai" id="new_entry_thai" value="Thai">
+  <input type="text" name="english" id="new_entry_english" value="English">
+  <input type="submit" value="Add">
+</form>
