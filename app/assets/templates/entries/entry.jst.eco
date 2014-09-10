@@ -1,9 +1,11 @@
-<td class="thai">
-  <%= @entry.get('thai') %>
+<td class="word">
+  <div class="view"><%= @entry.get('thai') %></div>
+  <input type="text" class="edit" data-lang="thai" value="<%= @entry.get('thai') %>">
 </td>
 
-<td class="english">
-  <%= @entry.get('english') %>
+<td class="word">
+  <div class="view"><%= @entry.get('english') %></div>
+  <input type="text" class="edit" data-lang="english" value="<%= @entry.get('english') %>">
 </td>
 
 <td>

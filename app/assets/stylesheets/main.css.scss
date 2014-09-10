@@ -61,7 +61,6 @@ h1 {
   text-align: center;
 }
 
-
 table {
   width: 100%;
 }
@@ -77,5 +76,17 @@ table td {
 table tr {
   .destroy {
     float: right;
+    cursor: pointer;
   }
 }
+
+table input, .editing .view {
+  display: none;
+}
+
+.editing input {
+  display: block;
+  font-size: 24px;
+  border: none;
+}
+

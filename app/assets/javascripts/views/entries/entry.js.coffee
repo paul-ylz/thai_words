@@ -4,31 +4,31 @@ class ThaiWords.Views.Entry extends Backbone.View
 
   tagName: 'tr'
 
+  className: 'entry'
+
+  initialize: ->
+    @listenTo(@model, 'change', @render)
+    @listenTo(@model, 'destroy', @remove)
+
   events:
     'click .destroy': 'destroy'
-    # 'dblclick': 'edit'
-    'submit': 'update'
+    'click .word'   : 'edit'
+    'keypress .edit': 'updateOnEnter'
 
   render: ->
     $(@el).html @template( entry: @model )
     this
 
   destroy: (e) ->
-    @model.destroy
-      success: => @remove()
+    @model.destroy()
 
   edit: (e) ->
-    key = e.target.className
-    console.log key
-    $(e.target).html('<form><input type="text" data="' + key + '"/><input type="submit"/></form>')
+    $(e.target).parent('td').addClass('editing')
 
-
-  update: (e) ->
-    e.preventDefault()
-    key = @$(e.target).children()[0].id
-    value = @$(e.target).children()[0].value
-    console.log key
-    console.log value
-    # ^^ There must be a nicer way to get the value out of there
-    # @model.save @edit_field, value,
-      # success: -> $('#edit_entry').remove()
+  updateOnEnter: (e) ->
+    if e.keyCode is 13
+      language = $(e.target).data('lang')
+      word     = $(e.target).val()
+      @model.save language, word,
+        success: =>
+          $(e.target).parent('td').removeClass('editing')
