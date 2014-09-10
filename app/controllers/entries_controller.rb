@@ -9,6 +9,10 @@ class EntriesController < ApplicationController
     respond_with Entry.destroy(params[:id])
   end
 
+  def update
+    respond_with Entry.update(params[:id], permitted_params)
+  end
+
   private
 
     def permitted_params

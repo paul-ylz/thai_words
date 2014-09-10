@@ -7,8 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="wrapper">
-    <%= yield %>
+
+  <%= yield %>
+
+  <div id="credits">
+    Created by
+    <br>
+    <a href="#">Paul Yeoh</a>
+    <br>
+    Design stolen from
+    <br>
+    <a href="http://backbonejs.org/examples/todos/index.html">
+      Jérôme Gravel-Niquet's Todos App
+    </a>
   </div>
+
 </body>
 </html>

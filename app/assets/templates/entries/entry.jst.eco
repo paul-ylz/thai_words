@@ -4,5 +4,8 @@
 
 <td class="english">
   <%= @entry.get('english') %>
-  <span class="destroy" id="<%= @entry.get('id') %>">&times;</span>
+</td>
+
+<td>
+  <span class="destroy">&times;</span>
 </td>
