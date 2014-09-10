@@ -4,6 +4,7 @@ class ThaiWords.Views.EntriesIndex extends Backbone.View
 
   initialize: ->
     @listenTo(@collection, 'reset', @render)
+    @listenTo(@collection, 'add', @appendEntry)
 
   events:
     'submit #new_entry': 'createEntry'
