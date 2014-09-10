@@ -6,8 +6,8 @@
 
 <h3>Entries</h3>
 <table id="entries">
-  <tr>
+  <thead>
     <th>Thai</th>
     <th>English</th>
-  </tr>
+  </thead>
 </table>
