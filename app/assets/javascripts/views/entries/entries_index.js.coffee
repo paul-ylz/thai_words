@@ -2,6 +2,8 @@ class ThaiWords.Views.EntriesIndex extends Backbone.View
 
   template: JST['entries/index']
 
+  className: 'entries-index'
+
   initialize: ->
     @listenTo(@collection, 'reset', @render)
     @listenTo(@collection, 'add', @appendEntry)

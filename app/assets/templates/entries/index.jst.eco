@@ -1,16 +1,13 @@
-<h1>Thai Words</h1>
+<form id="new_entry">
+  <input type="text" name="thai" id="new_entry_thai" placeholder="ไก่">
+  <input type="text" name="english" id="new_entry_english" placeholder="chicken">
+  <input type="submit">
+</form>
 
-<h2>Entries</h2>
-
+<h3>Entries</h3>
 <table id="entries">
   <tr>
     <th>Thai</th>
     <th>English</th>
   </tr>
 </table>
-
-<form id="new_entry">
-  <input type="text" name="thai" id="new_entry_thai" placeholder="ไก่">
-  <input type="text" name="english" id="new_entry_english" placeholder="chicken">
-  <input type="submit" value="Add">
-</form>

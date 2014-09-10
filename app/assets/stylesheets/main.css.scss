@@ -1,3 +1,50 @@
-// Place all the styles related to the main controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#container {
+  background: white;
+  width: 50%;
+  margin: 20px auto;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.entries-index {
+  color: #666;
+}
+
+form {
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+form input {
+  border: 1px inset;
+  padding: 1%;
+  margin: 15px 0;
+  display: block;
+  width: 98%;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 30px;
+
+  &[type="submit"] {
+    display: none;
+  }
+}
+
+h1 {
+  text-align: center;
+  color: #FFF;
+}
+
+h2 {
+
+}
+
+table {
+  width: 100%;
+}
+
+table td {
+  width: 50%;
+  font-size: 24px;
+  line-height: 24px;
+}
