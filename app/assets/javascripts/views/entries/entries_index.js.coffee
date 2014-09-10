@@ -12,7 +12,8 @@ class ThaiWords.Views.EntriesIndex extends Backbone.View
   createEntry: (e) ->
     e.preventDefault()
     attr = thai: $('#new_entry_thai').val(), english: $('#new_entry_english').val()
-    @collection.create attr
+    @collection.create attr,
+      success: $('#new_entry').trigger('reset')
 
   render: ->
     $(@el).html(@template())
