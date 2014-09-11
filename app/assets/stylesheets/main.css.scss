@@ -49,7 +49,7 @@ form input {
   display: block;
   width: 90%;
   height: 40px;
-  border-radius: 5px;
+  border-radius: 3px;
   font-size: 30px;
 
   &[type="submit"] {
@@ -63,6 +63,7 @@ h1 {
 
 table {
   width: 100%;
+  border-spacing: 1px;
 }
 
 table td {
@@ -71,6 +72,7 @@ table td {
   line-height: 24px;
   background: #EEE;
   padding: 5px;
+  border-radius: 3px;
 }
 
 table tr {
@@ -90,3 +92,17 @@ table input, .editing .view {
   border: none;
 }
 
+.destroy {
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  top: 5px;
+  line-height: 10px;
+
+  &:hover {
+    color: white;
+    background: black;
+  }
+}

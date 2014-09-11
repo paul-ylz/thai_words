@@ -8,6 +8,6 @@
   <input type="text" class="edit" data-lang="english" value="<%= @entry.get('english') %>">
 </td>
 
-<td>
-  <span class="destroy">&times;</span>
+<td class="destroy">
+  &times;
 </td>
