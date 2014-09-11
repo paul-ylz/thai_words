@@ -23,7 +23,7 @@ class ThaiWords.Views.Entry extends Backbone.View
     @model.destroy()
 
   edit: (e) ->
-    $(e.target).parent('td').addClass('editing')
+    $(e.target).closest('td').addClass('editing')
 
   updateOnEnter: (e) ->
     if e.keyCode is 13
