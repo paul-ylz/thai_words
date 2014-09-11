@@ -2,13 +2,7 @@
   <h1>Thai Words</h1>
 </header>
 
-<section>
-  <form id="new_entry">
-    <input type="text" name="thai" id="new_entry_thai" placeholder="ไก่" required autofocus>
-    <input type="text" name="english" id="new_entry_english" placeholder="chicken">
-    <input type="submit">
-  </form>
-</section>
+<section id="form"></section>
 
 <section>
   <table id="entries">

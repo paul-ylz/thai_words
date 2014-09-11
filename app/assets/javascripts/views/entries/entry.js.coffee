@@ -21,11 +21,13 @@ class ThaiWords.Views.Entry extends Backbone.View
     this
 
   destroy: (e) ->
-    @model.destroy()
-      success: $('#status_bar_message').html('Entry destroyed')
+    @model.destroy
+      success: (model, response, options) =>
+        $('#status_bar_message').html('Entry destroyed')
 
   edit: (e) ->
-    $(e.target).closest('td').addClass('editing').children('input').trigger('focus')
+    $(e.target).closest('td').addClass('editing').children('input')
+      .trigger('focus')
     $('#status_bar_message').html('Editing')
 
   updateOnEnter: (e) ->

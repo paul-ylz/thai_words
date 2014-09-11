@@ -15,7 +15,9 @@ class ThaiWords.Views.EntriesIndex extends Backbone.View
     'click #clear_status_bar': 'clearStatusBar'
 
   render: ->
-    $(@el).html(@template())
+    $(@el).html @template()
+    form = new ThaiWords.Views.Form
+    @$('#form').html form.render().el
     @collection.each(@appendEntry)
     this
 
