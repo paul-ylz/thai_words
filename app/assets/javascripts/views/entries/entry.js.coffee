@@ -23,7 +23,7 @@ class ThaiWords.Views.Entry extends Backbone.View
   destroy: (e) ->
     @model.destroy
       success: (model, response, options) =>
-        $('#status_bar_message').html('Entry destroyed')
+        $('#status_bar_message').html('Destroyed ' + model.get('thai'))
 
   edit: (e) ->
     $(e.target).closest('td').addClass('editing').children('input')
@@ -35,7 +35,7 @@ class ThaiWords.Views.Entry extends Backbone.View
       language = $(e.target).data('lang')
       word     = $(e.target).val()
       @model.save language, word,
-        success: =>
+        success: (model, response, options) =>
           @$('.editing').removeClass('editing')
           $('#status_bar_message').html('Updated')
 
