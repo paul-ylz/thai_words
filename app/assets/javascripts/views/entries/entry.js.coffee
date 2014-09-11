@@ -14,6 +14,7 @@ class ThaiWords.Views.Entry extends Backbone.View
     'click .destroy': 'destroy'
     'click .word'   : 'edit'
     'keypress .edit': 'updateOnEnter'
+    'blur .edit'    : 'abortEdit'
 
   render: ->
     $(@el).html @template( entry: @model )
@@ -23,7 +24,8 @@ class ThaiWords.Views.Entry extends Backbone.View
     @model.destroy()
 
   edit: (e) ->
-    $(e.target).closest('td').addClass('editing')
+    $(e.target).closest('td').addClass('editing').children('input').trigger('focus')
+    $('#status_bar').html('Editing')
 
   updateOnEnter: (e) ->
     if e.keyCode is 13
@@ -32,3 +34,8 @@ class ThaiWords.Views.Entry extends Backbone.View
       @model.save language, word,
         success: =>
           @$('.editing').removeClass('editing')
+          $('#status_bar').html('Updated')
+
+  abortEdit: (e) ->
+    @$('.editing').removeClass('editing')
+    $('#status_bar').html('Edit aborted')

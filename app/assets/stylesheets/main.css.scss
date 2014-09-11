@@ -23,6 +23,7 @@ body {
   height: 38px;
   line-height: 37px;
   margin: 0 -20px;
+  padding: 0 20px;
   background: #f4fce8;
   color: #555555;
   border-top: 1px solid #ededed;
@@ -90,6 +91,7 @@ table input, .editing .view {
   display: block;
   font-size: 24px;
   border: none;
+  width: 100%;
 }
 
 .destroy {
