@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset='UTF-8'>
   <title>ThaiWords</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -10,17 +11,17 @@
 
   <%= yield %>
 
-  <div id="credits">
+  <footer id='credits'>
     Created by
     <br>
-    <a href="#">Paul Yeoh</a>
+    <a href='#'>Paul Yeoh</a>
     <br>
     Design stolen from
     <br>
-    <a href="http://backbonejs.org/examples/todos/index.html">
+    <a href='http://backbonejs.org/examples/todos/index.html'>
       Jérôme Gravel-Niquet's Todos App
     </a>
-  </div>
+  </footer>
 
 </body>
 </html>
