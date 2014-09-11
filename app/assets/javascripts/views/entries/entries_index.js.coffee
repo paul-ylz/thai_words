@@ -11,7 +11,8 @@ class ThaiWords.Views.EntriesIndex extends Backbone.View
     @listenTo(@collection, 'add', @appendEntry)
 
   events:
-    'submit #new_entry': 'createEntry'
+    'submit #new_entry'      : 'createEntry'
+    'click #clear_status_bar': 'clearStatusBar'
 
   render: ->
     $(@el).html(@template())
@@ -20,14 +21,19 @@ class ThaiWords.Views.EntriesIndex extends Backbone.View
 
   createEntry: (e) ->
     e.preventDefault()
-    attr = thai: $('#new_entry_thai').val(), english: $('#new_entry_english').val()
+    attr = thai: @$('#new_entry_thai').val(), english: @$('#new_entry_english').val()
     @collection.create attr,
       wait: true
-      success: @resetForm
+      success: (model, response, options) =>
+        @$('#new_entry').trigger('reset')
+        @$('#status_bar_message')
+          .html('Entry created for ' + model.get('thai') + ', ' + model.get('english'))
 
   appendEntry: (entry) =>
     view = new ThaiWords.Views.Entry( model: entry )
     @$('#entries').append(view.render().el)
 
-  resetForm: ->
-    $('#new_entry').trigger('reset')
+  clearStatusBar: (e) ->
+    @$('#status_bar_message').empty()
+
+  handleCreateSuccess: ->

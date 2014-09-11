@@ -19,4 +19,7 @@
   </table>
 </section>
 
-<footer id="status_bar"></footer>
+<footer class="status_bar">
+  <span id="status_bar_message"></span>
+  <span id="clear_status_bar">&times;</span>
+</footer>

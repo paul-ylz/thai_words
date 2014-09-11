@@ -19,7 +19,7 @@ body {
   margin-bottom: 30px;
 }
 
-#status_bar {
+.status_bar {
   height: 38px;
   line-height: 37px;
   margin: 0 -20px;
@@ -106,5 +106,15 @@ table input, .editing .view {
   &:hover {
     color: white;
     background: black;
+  }
+}
+
+#clear_status_bar {
+  float: right;
+  margin-right: 10px;
+  cursor: pointer;
+
+  &:hover {
+    color: black;
   }
 }

@@ -11,10 +11,10 @@ class ThaiWords.Views.Entry extends Backbone.View
     @listenTo(@model, 'destroy', @remove)
 
   events:
-    'click .destroy': 'destroy'
-    'click .word'   : 'edit'
-    'keypress .edit': 'updateOnEnter'
-    'blur .edit'    : 'abortEdit'
+    'click .destroy'         : 'destroy'
+    'click .word'            : 'edit'
+    'keypress .edit'         : 'updateOnEnter'
+    'blur .edit'             : 'abortEdit'
 
   render: ->
     $(@el).html @template( entry: @model )
@@ -22,10 +22,11 @@ class ThaiWords.Views.Entry extends Backbone.View
 
   destroy: (e) ->
     @model.destroy()
+      success: $('#status_bar_message').html('Entry destroyed')
 
   edit: (e) ->
     $(e.target).closest('td').addClass('editing').children('input').trigger('focus')
-    $('#status_bar').html('Editing')
+    $('#status_bar_message').html('Editing')
 
   updateOnEnter: (e) ->
     if e.keyCode is 13
@@ -34,8 +35,8 @@ class ThaiWords.Views.Entry extends Backbone.View
       @model.save language, word,
         success: =>
           @$('.editing').removeClass('editing')
-          $('#status_bar').html('Updated')
+          $('#status_bar_message').html('Updated')
 
   abortEdit: (e) ->
     @$('.editing').removeClass('editing')
-    $('#status_bar').html('Edit aborted')
+    $('#status_bar_message').html('Edit aborted')
