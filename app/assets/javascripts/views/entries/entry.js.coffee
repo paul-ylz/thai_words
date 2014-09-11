@@ -31,4 +31,4 @@ class ThaiWords.Views.Entry extends Backbone.View
       word     = $(e.target).val()
       @model.save language, word,
         success: =>
-          $(e.target).parent('td').removeClass('editing')
+          @$('.editing').removeClass('editing')
