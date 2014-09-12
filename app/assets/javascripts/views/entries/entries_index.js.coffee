@@ -29,7 +29,7 @@ class ThaiWords.Views.EntriesIndex extends Backbone.View
       success: (model, response, options) =>
         @$('#new_entry').trigger('reset')
         @$('#status_bar_message')
-          .html('Entry created for ' + model.get('thai') + ', ' + model.get('english'))
+          .html('Entry created for ' + model.get('thai') + '; ' + model.get('english'))
 
   appendEntry: (entry) =>
     view = new ThaiWords.Views.Entry( model: entry )

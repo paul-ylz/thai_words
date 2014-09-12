@@ -8,9 +8,39 @@ class ThaiWords.Views.Form extends Backbone.View
 
   events:
     'keypress #translator': 'mapKeyToThai'
+    'keydown #translator' : 'handleSpecialKeys'
+    'keydown #new_entry_english': 'tabToTranslator'
+    'click #new_entry_thai': (e) -> @$('#translator').trigger('focus')
+
+  handleSpecialKeys: (e) ->
+    keyCode = e.keyCode
+    switch keyCode
+      when 9
+        @handleTab(e)
+        break
+      when 8
+        @emulateBackspace(e)
+        break
+      when 13
+        # User hit enter
+        @$('#new_entry').trigger('submit')
+        break
+
+  handleTab: (e) ->
+    e.preventDefault()
+    $('#new_entry_english').trigger('focus')
+
+  tabToTranslator: (e) ->
+    if e.keyCode == 9
+      e.preventDefault()
+      $('#translator').trigger('focus')
+
+  emulateBackspace: (e) ->
+    $('#new_entry_thai').val( $('#new_entry_thai').val().slice(0, -1) )
 
   mapKeyToThai: (e) ->
     uniCode = e.charCode
+    console.log uniCode
     char = @keyMap[uniCode]
     @appendToField char if char
 
@@ -20,6 +50,7 @@ class ThaiWords.Views.Form extends Backbone.View
     $('#new_entry_thai').val value
 
   keyMap:
+    32: ' '
     96: '-'
     49: 'ๅ'
     50: '/'
