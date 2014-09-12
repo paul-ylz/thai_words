@@ -37,5 +37,3 @@ class ThaiWords.Views.EntriesIndex extends Backbone.View
 
   clearStatusBar: (e) ->
     @$('#status_bar_message').empty()
-
-  handleCreateSuccess: ->
