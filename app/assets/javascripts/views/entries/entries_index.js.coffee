@@ -18,7 +18,7 @@ class ThaiWords.Views.EntriesIndex extends Backbone.View
     $(@el).html @template()
     form = new ThaiWords.Views.Form
     @$('#form').html form.render().el
-    @collection.each(@appendEntry)
+    @collection.each @appendEntry
     this
 
   createEntry: (e) ->

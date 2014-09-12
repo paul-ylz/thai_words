@@ -7,19 +7,18 @@ class ThaiWords.Views.Form extends Backbone.View
     this
 
   events:
+    'focus #translator': 'toggleThaiField'
+    'blur #translator': 'toggleThaiField'
     'keypress #translator': 'mapKeyToThai'
-    'keydown #translator' : 'handleSpecialKeys'
-    'keydown #new_entry_english': 'tabToTranslator'
-    'click #new_entry_thai': 'toggleThaiField'
-    'focus #new_entry_english': 'toggleThaiField'
+    'keydown #translator': 'handleSpecialKeys'
+    'reset #new_entry': -> @$('#translator').trigger('focus')
 
   toggleThaiField: (e) ->
     field = $('#new_entry_thai')
-    if field.hasClass('glow')
-      field.removeClass('glow')
-    else
+    if e.type == 'focusin'
       field.addClass('glow')
-      @$('#translator').trigger('focus')
+    else
+      field.removeClass('glow')
 
   handleSpecialKeys: (e) ->
     keyCode = e.keyCode

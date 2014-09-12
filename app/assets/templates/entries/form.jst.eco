@@ -1,6 +1,6 @@
 <input type="text" id="translator" autofocus autocomplete="off">
 <form id="new_entry">
-  <input type="text" name="thai" id="new_entry_thai" placeholder="ไก่" required readonly>
+  <input type="text" name="thai" id="new_entry_thai" placeholder="ไก่" class="glow" required readonly>
   <input type="text" name="english" id="new_entry_english" placeholder="chicken" autocomplete="off">
   <input type="submit">
 </form>
