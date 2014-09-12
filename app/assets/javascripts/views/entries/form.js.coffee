@@ -12,6 +12,8 @@ class ThaiWords.Views.Form extends Backbone.View
     'keypress #translator': 'mapKeyToThai'
     'keydown #translator': 'handleSpecialKeys'
     'reset #new_entry': -> @$('#translator').trigger('focus')
+    'keydown #new_entry_english': 'tabToTranslator'
+    'click #new_entry_thai': -> @$('#translator').trigger('focus')
 
   toggleThaiField: (e) ->
     field = $('#new_entry_thai')
@@ -41,10 +43,10 @@ class ThaiWords.Views.Form extends Backbone.View
   tabToTranslator: (e) ->
     if e.keyCode == 9
       e.preventDefault()
-      $('#translator').trigger('focus')
+      @$('#translator').trigger('focus')
 
   emulateBackspace: (e) ->
-    $('#new_entry_thai').val( $('#new_entry_thai').val().slice(0, -1) )
+    @$('#new_entry_thai').val( @$('#new_entry_thai').val().slice(0, -1) )
 
   mapKeyToThai: (e) ->
     uniCode = e.charCode
@@ -52,9 +54,9 @@ class ThaiWords.Views.Form extends Backbone.View
     @appendToField char if char
 
   appendToField: (char) ->
-    value = $('#new_entry_thai').val()
+    value = @$('#new_entry_thai').val()
     value += char
-    $('#new_entry_thai').val value
+    @$('#new_entry_thai').val value
 
   keyMap:
     32: ' '
