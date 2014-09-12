@@ -10,49 +10,107 @@ class ThaiWords.Views.Form extends Backbone.View
     'keypress #translator': 'mapKeyToThai'
 
   mapKeyToThai: (e) ->
-    switch e.which
-      when 113
-        char = 'ๆ'
-        break
-      when 119
-        char = 'ไ'
-        break
-      when 101
-        char = 'ำ'
-        break
-      when 114
-        char = 'พ'
-        break
-      when 116
-        char = 'ะ'
-        break
-      when 121
-        char = 'ั'
-        break
-      when 117
-        char = 'ี'
-        break
-      when 105
-        char = 'ร'
-        break
-      when 111
-        char = 'น'
-        break
-      when 112
-        char = 'ย'
-        break
-      when 91
-        char = 'บ'
-        break
-      when 93
-        char = 'ล'
-        break
-      when 92
-        char = 'ฃ'
-        break
-    @appendToField char
+    uniCode = e.charCode
+    char = @keyMap[uniCode]
+    @appendToField char if char
 
   appendToField: (char) ->
     value = $('#new_entry_thai').val()
     value += char
     $('#new_entry_thai').val value
+
+  keyMap:
+    96: '-'
+    49: 'ๅ'
+    50: '/'
+    51: '_'
+    52: 'ภ'
+    53: 'ถ'
+    54: 'ุ'
+    55: 'ึ'
+    56: 'ค'
+    57: 'ต'
+    48: 'จ'
+    45: 'ข'
+    61: 'ช'
+    113: 'ๆ'
+    119: 'ไ'
+    101: 'ำ'
+    114: 'พ'
+    116: 'ะ'
+    121: 'ั'
+    117: 'ี'
+    105: 'ร'
+    111: 'น'
+    112: 'ย'
+    91: 'บ'
+    93: 'ล'
+    92: 'ฃ'
+    97: 'ฟ'
+    115: 'ห'
+    100: 'ก'
+    102: 'ด'
+    103: 'เ'
+    104: '้'
+    106: '่'
+    107: 'า'
+    108: 'ส'
+    59: 'ว'
+    39: 'ง'
+    122: 'ผ'
+    120: 'ป'
+    99: 'แ'
+    118: 'อ'
+    98: 'ิ'
+    110: 'ื'
+    109: 'ท'
+    44: 'ม'
+    46: 'ใ'
+    47: 'ฝ'
+    126: '%'
+    33: '+'
+    64: '๑'
+    35: '๒'
+    36: '๓'
+    37: '๔'
+    94: 'ู'
+    38: '฿'
+    42: '๕'
+    40: '๖'
+    41: '๗'
+    95: '๘'
+    43: '๙'
+    81: '๐'
+    87: '”'
+    69: 'ฎ'
+    82: 'ฑ'
+    84: 'ธ'
+    89: 'ํ'
+    85: '๊'
+    73: 'ณ'
+    79: 'ฯ'
+    80: 'ญ'
+    123: 'ฐ'
+    125: ','
+    124: 'ฅ'
+    65: 'ฤ'
+    83: 'ฆ'
+    68: 'ฏ'
+    70: 'โ'
+    71: 'ฌ'
+    72: '็'
+    74: '๋'
+    75: 'ษ'
+    76: 'ศ'
+    58: 'ซ'
+    34: '.'
+    90: '('
+    88: ')'
+    67: 'ฉ'
+    86: 'ฮ'
+    66: 'ฺ'
+    78: '์'
+    77: '?'
+    60: 'ฒ'
+    62: 'ฬ'
+    63: 'ฦ'
