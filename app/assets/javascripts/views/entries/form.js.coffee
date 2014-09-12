@@ -40,8 +40,7 @@ class ThaiWords.Views.Form extends Backbone.View
 
   mapKeyToThai: (e) ->
     uniCode = e.charCode
-    console.log uniCode
-    char = @keyMap[uniCode]
+    char    = @keyMap[uniCode]
     @appendToField char if char
 
   appendToField: (char) ->

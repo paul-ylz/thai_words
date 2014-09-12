@@ -8,13 +8,14 @@ $white: white;
 
 // Dimensions
 $app_width: 65%;
+$base_font_size: 16px;
 
 body {
   margin: 0;
   background: $mauve;
   color: $base_color;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: $base_font_size;
   line-height: 1.5;
 }
 
@@ -98,13 +99,6 @@ table td {
   border-radius: 3px;
 }
 
-table tr {
-  .destroy {
-    float: right;
-    cursor: pointer;
-  }
-}
-
 table input, .editing .view {
   display: none;
 }
@@ -116,15 +110,16 @@ table input, .editing .view {
   width: 100%;
 }
 
+.destroy_cell {
+  background: none;
+}
 .destroy {
-  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  position: relative;
-  top: 5px;
-  line-height: 10px;
-
+  cursor: pointer;
+  line-height: $base_font_size;
+  text-align: center;
   &:hover {
     color: $white;
     background: $base_color;
@@ -132,9 +127,18 @@ table input, .editing .view {
 }
 
 #clear_status_bar {
+  width: 15px;
+  height: 15px;
   float: right;
   margin-right: 10px;
   cursor: pointer;
+  line-height: 0.75em;
+  border-radius: 50%;
+  text-align: center;
+  &:hover {
+    color: $lightMauve;
+    background: $mauve;
+  }
 }
 
 #translator {
