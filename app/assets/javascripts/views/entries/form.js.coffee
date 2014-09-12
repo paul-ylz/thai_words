@@ -50,9 +50,9 @@ class ThaiWords.Views.Form extends Backbone.View
       when 92
         char = 'ฃ'
         break
-    @appendToField(char)
+    @appendToField char
 
   appendToField: (char) ->
     value = $('#new_entry_thai').val()
     value += char
-    $('#new_entry_thai').val(value)
+    $('#new_entry_thai').val value

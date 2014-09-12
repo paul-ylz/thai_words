@@ -1,15 +1,31 @@
+// Colors
+$base_color: rgb(51, 5, 102);
+$pink: rgb(153, 1, 153);
+$mauve: rgb(141, 115, 169);
+$lightMauve: lighten($mauve, 35%);
+$yellow: rgb(242, 200, 35);
+$white: white;
+
+// Dimensions
+$app_width: 65%;
+
 body {
   margin: 0;
-  background: #eeeeee;
-  color: #333;
+  background: $mauve;
+  color: $base_color;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+a {
+  color: $base_color;
 }
 
 #container {
-  width: 65%;
+  width: $app_width;
   margin: 0px auto 40px auto;
-  background: #FFF;
+  background: $white;
   padding: 20px 20px 0 20px;
   border-radius: 0 0 5px 5px;
   box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
@@ -21,22 +37,21 @@ body {
 
 .status_bar {
   height: 38px;
-  line-height: 37px;
   margin: 0 -20px;
   padding: 0 20px;
-  background: #f4fce8;
-  color: #555555;
+  background: $lightMauve;
   border-top: 1px solid #ededed;
   border-radius: 0 0 5px 5px;
 }
 
 #credits {
+  width: $app_width;
   margin: 30px auto;
-  color: #999;
+  padding: 20px;
+  background: $lightMauve;
   text-align: center;
-  text-shadow: rgba(255,255,255,0.8) 0 1px 0;
-  line-height: 1.4em;
-  a { color: #888; }
+  border-radius: 5px;
+  font-size: 0.75em;
 }
 
 form {
@@ -59,7 +74,9 @@ form input {
 }
 
 h1 {
+  font-size: 2.5em;
   text-align: center;
+  border-bottom: 1px solid $pink;
 }
 
 table {
@@ -67,11 +84,16 @@ table {
   border-spacing: 1px;
 }
 
+table th {
+  background: $yellow;
+  font-size: 1.5em;
+  border-radius: 3px;
+}
+
 table td {
   width: 50%;
   font-size: 24px;
-  line-height: 24px;
-  background: #EEE;
+  background: $lightMauve;
   padding: 5px;
   border-radius: 3px;
 }
@@ -104,8 +126,8 @@ table input, .editing .view {
   line-height: 10px;
 
   &:hover {
-    color: white;
-    background: black;
+    color: $white;
+    background: $base_color;
   }
 }
 
@@ -113,9 +135,5 @@ table input, .editing .view {
   float: right;
   margin-right: 10px;
   cursor: pointer;
-
-  &:hover {
-    color: black;
-  }
 }
 
