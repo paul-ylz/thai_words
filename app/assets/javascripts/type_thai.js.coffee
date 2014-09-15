@@ -1,43 +1,18 @@
-class ThaiWords.Views.Form extends Backbone.View
+class @TypeThai
 
-  template: JST['entries/form']
+  constructor: (selector) ->
+    @$el = $(selector)
+    console.log @$el
+    # @$el.on 'keypress', @catchAndReplace
+    @$el.on 'keypress', -> console.log 'keypress triggered'
 
-  initialize: ->
-    new TypeThai('#new_entry_thai')
-
-  render: ->
-    $(@el).html @template()
-    this
-
-  events:
-    # use keypress event to get character codes for translation
-    # 'keypress #new_entry_thai'  : 'catchAndReplace'
-    'submit #new_entry'         : 'createEntry'
-    'reset #new_entry'          : 'resetFocus'
-    'keydown #new_entry_english': 'resetFocusIfTab'
-
-  catchAndReplace: (e) ->
+  catchAndReplace: (e) =>
     e.preventDefault()
     if e.which == 13
       $(e.target).trigger('submit')
       return
     thaiChar = @keyMap[e.which]
     $(e.target).val($(e.target).val() + thaiChar)
-
-  createEntry: (e) ->
-    e.preventDefault()
-    attr = thai: @$('#new_entry_thai').val(), english: @$('#new_entry_english').val()
-    @collection.create attr,
-      success: (model, response, options) =>
-        @$('#new_entry').trigger('reset')
-
-  resetFocusIfTab: (e) ->
-    if e.keyCode == 9
-      e.preventDefault()
-      @resetFocus()
-
-  resetFocus: (e) ->
-    @$('#new_entry_thai').trigger('focus')
 
   keyMap:
     32: ' '
