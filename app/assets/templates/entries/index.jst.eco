@@ -9,6 +9,7 @@
     <thead>
       <th>Thai</th>
       <th>English</th>
+      <th class='destroy_cell'></th>
     </thead>
   </table>
 </section>

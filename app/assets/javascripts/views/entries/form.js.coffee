@@ -2,11 +2,9 @@ class ThaiWords.Views.Form extends Backbone.View
 
   template: JST['entries/form']
 
-  initialize: ->
-    new TypeThai('#new_entry_thai')
-
   render: ->
-    $(@el).html @template()
+    $(@el).html(@template())
+    new TypeThai @$('#new_entry_thai')
     this
 
   events:

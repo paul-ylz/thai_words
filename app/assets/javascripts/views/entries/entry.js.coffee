@@ -19,6 +19,7 @@ class ThaiWords.Views.Entry extends Backbone.View
 
   render: ->
     $(@el).html @template(entry: @model)
+    new TypeThai @$('input[data-lang="thai"]')
     this
 
   destroy: (e) ->
@@ -28,6 +29,7 @@ class ThaiWords.Views.Entry extends Backbone.View
   edit: (e) ->
     @$(e.target).closest('td').addClass('editing')
       .children('input').trigger('focus')
+
 
   updateOnEnter: (e) ->
     if e.keyCode is 13

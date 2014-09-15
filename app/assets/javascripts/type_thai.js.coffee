@@ -1,18 +1,14 @@
 class @TypeThai
 
-  constructor: (selector) ->
-    @$el = $(selector)
-    console.log @$el
-    # @$el.on 'keypress', @catchAndReplace
-    @$el.on 'keypress', -> console.log 'keypress triggered'
+  constructor: (element) ->
+    @$el = element
+    @$el.on 'keypress', @catchAndReplace
 
   catchAndReplace: (e) =>
-    e.preventDefault()
-    if e.which == 13
-      $(e.target).trigger('submit')
-      return
     thaiChar = @keyMap[e.which]
-    $(e.target).val($(e.target).val() + thaiChar)
+    if thaiChar?
+      e.preventDefault()
+      $(e.target).val($(e.target).val() + thaiChar)
 
   keyMap:
     32: ' '
