@@ -7,56 +7,34 @@ class ThaiWords.Views.Form extends Backbone.View
     this
 
   events:
-    'focus #translator': 'toggleThaiField'
-    'blur #translator': 'toggleThaiField'
-    'keypress #translator': 'mapKeyToThai'
-    'keydown #translator': 'handleSpecialKeys'
-    'reset #new_entry': -> @$('#translator').trigger('focus')
-    'keydown #new_entry_english': 'tabToTranslator'
-    'click #new_entry_thai': -> @$('#translator').trigger('focus')
+    # use keypress event to get character codes for translation
+    'keypress #new_entry_thai'  : 'catchAndReplace'
+    'submit #new_entry'         : 'createEntry'
+    'reset #new_entry'          : 'resetFocus'
+    'keydown #new_entry_english': 'resetFocusIfTab'
 
-  toggleThaiField: (e) ->
-    field = $('#new_entry_thai')
-    if e.type == 'focusin'
-      field.addClass('glow')
-    else
-      field.removeClass('glow')
-
-  handleSpecialKeys: (e) ->
-    keyCode = e.keyCode
-    switch keyCode
-      when 9
-        @handleTab(e)
-        break
-      when 8
-        @emulateBackspace(e)
-        break
-      when 13
-        # User hit enter
-        @$('#new_entry').trigger('submit')
-        break
-
-  handleTab: (e) ->
+  catchAndReplace: (e) ->
     e.preventDefault()
-    $('#new_entry_english').trigger('focus')
+    if e.which == 13
+      $(e.target).trigger('submit')
+      return
+    thaiChar = @keyMap[e.which]
+    $(e.target).val($(e.target).val() + thaiChar)
 
-  tabToTranslator: (e) ->
+  createEntry: (e) ->
+    e.preventDefault()
+    attr = thai: @$('#new_entry_thai').val(), english: @$('#new_entry_english').val()
+    @collection.create attr,
+      success: (model, response, options) =>
+        @$('#new_entry').trigger('reset')
+
+  resetFocusIfTab: (e) ->
     if e.keyCode == 9
       e.preventDefault()
-      @$('#translator').trigger('focus')
+      @resetFocus()
 
-  emulateBackspace: (e) ->
-    @$('#new_entry_thai').val( @$('#new_entry_thai').val().slice(0, -1) )
-
-  mapKeyToThai: (e) ->
-    uniCode = e.charCode
-    char    = @keyMap[uniCode]
-    @appendToField char if char
-
-  appendToField: (char) ->
-    value = @$('#new_entry_thai').val()
-    value += char
-    @$('#new_entry_thai').val value
+  resetFocus: (e) ->
+    @$('#new_entry_thai').trigger('focus')
 
   keyMap:
     32: ' '
